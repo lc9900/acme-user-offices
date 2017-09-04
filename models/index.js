@@ -26,6 +26,27 @@ function syncAndSeed (){
             })
 }
 
+// Return {users: [user1, user2, ...], offices: [office1, office2, ...]}
+// user would also include related office if any. Offices would include user data
+function extractAll() {
+    const resData = {
+        users: [],
+        offices: []
+    };
+    return Promise.all([
+        User.findAll({
+            include: [Office]
+        }),
+        Office.findAll({
+            include: [User]
+        })
+    ]).then(result => {
+        resData.users = result[0];
+        resData.offices = result[1];
+        return resData;
+    });
+
+}
 module.exports = {
-    syncAndSeed
+    syncAndSeed, extractAll
 }

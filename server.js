@@ -19,7 +19,7 @@ app.set('view engine', 'html');
 nunjucks.configure('views', {
     express: app,
     noCache: true
-})
+});
 
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
@@ -30,8 +30,13 @@ app.listen(port, () => {
         });
 })
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', (req, res, next) => {
+    db.extractAll()
+        .then(result => {
+            res.render('index', result);
+            // res.json(result);
+        })
+        .catch(next);
 });
 
 app.use('/users', userRouter);
