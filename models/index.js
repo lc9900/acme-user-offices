@@ -17,7 +17,8 @@ function syncAndSeed (){
                         }).then(() => {
                             return Promise.all([
                                     User.create({ name: 'Wolverine', officeId: 1}),
-                                    User.create({ name: 'Storm'})
+                                    User.create({ name: 'Cyclops', officeId: 1}),
+                                    User.create({ name: 'Storm'}),
                                 ])
                         }).then(() => {
                             return utils.inform('Database Seeded');
