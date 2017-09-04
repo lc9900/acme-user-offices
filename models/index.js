@@ -34,12 +34,8 @@ function extractAll() {
         offices: []
     };
     return Promise.all([
-        User.findAll({
-            include: [Office]
-        }),
-        Office.findAll({
-            include: [User]
-        })
+        User.extractAllUsers(),
+        Office.extractAllOffices()
     ]).then(result => {
         resData.users = result[0];
         resData.offices = result[1];
