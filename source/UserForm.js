@@ -4,7 +4,7 @@ function renderUserForm(config){
     var html = `
         <div class='form-group'>
             <label>Name</label>
-            <input class='form-control' name='name'>
+            <input id='user-input' class='form-control' name='name'>
         </div>
         <div class='form-group'>
             <button class='btn btn-primary'>Save</button>
@@ -24,8 +24,8 @@ function renderUserForm(config){
             }
         }).then(result => {
             console.log(result);
-            USERS.push(result[result.length-1]); // Updateing the global User object
             renderUsersList({id: '#usersList'}); // This is in Users.List.js
+            $('#user-input').val('');
         }).catch(err => { throw err });
     });
 
