@@ -18,3 +18,11 @@ router.delete('/:id', (req, res) => {
                     })
                     .catch(err => { throw err; });
 });
+
+router.post('/', (req, res) => {
+    return Office.create(req.body)
+            .then(() => {
+                res.send('Office added');
+            })
+            .catch(err => { throw err; });
+})
