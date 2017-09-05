@@ -22,10 +22,10 @@ $(function() {
             return;
           }
 
-          // console.log(place);
-          // console.log(place.formatted_address);
-          // console.log(place.geometry.location.lat());
-          // console.log(place.geometry.location.lng());
+          console.log(place);
+          console.log(place.formatted_address);
+          console.log(place.geometry.location.lat());
+          console.log(place.geometry.location.lng());
 
           var obj = {
             name: place.formatted_address,
@@ -41,6 +41,7 @@ $(function() {
             console.log(result);
             renderOfficesList({id: '#officesList'});
             renderUsersList({id: '#usersList'});
+            $('#map-input').val('');
           }).catch(err => { throw err; });
         });
       }
