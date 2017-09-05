@@ -15,4 +15,16 @@ Office.extractAllOffices = function() {
     })
 }
 
+Office.removeOffice = function(officeId){
+    return Office.findOne({
+        where: {
+            id: officeId
+        }
+    }).then(office =>{
+        return office.setUsers([]);
+    }).then(office => {
+        return office.destroy();
+    })
+}
+
 module.exports = Office;

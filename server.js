@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use('/custom', express.static(path.join(__dirname, 'source')));
 
 app.set('view engine', 'html');
 nunjucks.configure('views', {

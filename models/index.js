@@ -14,7 +14,15 @@ function syncAndSeed (){
                             name: '2 Times Square, New York, NY 10036, USA',
                             lat: 40.7594456,
                             lng: -73.9847779
-                        }).then(() => {
+                        })
+                        .then(() => {
+                            return Office.create({
+                                        name: '5 Hanover Square, Floor 25, New York, NY 10004, USA',
+                                        lat: 40.705076,
+                                        lng: -74.00916
+                                    })
+                        })
+                        .then(() => {
                             return Promise.all([
                                     User.create({ name: 'Wolverine', officeId: 1}),
                                     User.create({ name: 'Cyclops', officeId: 1}),

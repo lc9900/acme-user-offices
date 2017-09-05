@@ -22,7 +22,6 @@ const Office = require('../models/Office');
 
 
 // db.syncAndSeed()
-//     // Test out removing all users with project association
 //     .then(() => {
 //         return User.extractAllUsers()
 //     }).then(result => {
@@ -34,14 +33,53 @@ const Office = require('../models/Office');
 //         throw err;
 //     })
 
+// db.syncAndSeed()
+//     .then(() => {
+//         return Office.extractAllOffices()
+//     }).then(result => {
+//         result.forEach((office) => {
+//             console.log(office.users);
+//         })
+//     })
+//     .catch(err => {
+//         throw err;
+//     })
+
+
+// Testing User.setUserOffice
+// db.syncAndSeed()
+//     .then(() => {
+//         return User.findOne({
+//             where: {
+//                 name: 'Storm'
+//             }
+//         })
+//     }).then( user => {
+//         return User.setUserOffice(user.id, 1); // Seed data only contains one office
+//     }).then( result => {
+//         console.log(result); // This is the result of update, and it return [1], so it's an array container office id.
+//     })
+//     .catch(err => {
+//         throw err;
+//     })
+
+// Testing User.removeUser
+// db.syncAndSeed()
+//     // Test out removing all users with project association
+//     .then(() => {
+//         return User.removeUser(2);
+//     })
+//     .then(result => {
+//         console.log(result); // returned 1. I am thinking it's the count of users deleted
+//     })
+//     .catch(err => {
+//         throw err;
+//     })
+
+// Tesitng User.updateUserOffice(userId, officeId)
 db.syncAndSeed()
-    // Test out removing all users with project association
     .then(() => {
-        return Office.extractAllOffices()
-    }).then(result => {
-        result.forEach((office) => {
-            console.log(office.users);
-        })
+        return User.updateUserOffice(1, 0);
     })
     .catch(err => {
         throw err;
