@@ -32,7 +32,7 @@ app.listen(port, () => {
 })
 
 app.use(function(req, res, next){
-  res.locals.GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || "AIzaSyD2vKOOqwSWrLrSi6tRO2Lz72nVVsTumV4";
+  res.locals.GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
   next();
 });
 
